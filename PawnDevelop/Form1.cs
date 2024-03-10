@@ -1,19 +1,23 @@
 using System.Windows.Forms;
 using WindowsFormsApp;
-using FastColoredTextBoxNS;
 using System.Text.RegularExpressions;
 using System;
+using FastColoredTextBoxNS;
+using DiscordRPC;
 
 namespace PawnDevelop
 {
     public partial class Form1 : Form
     {
         private string filePath = "";
+
         private FastColoredTextBox fastColoredTextBox1;
+        private DiscordRPCManager discordRPCManager;
 
         public Form1()
         {
             InitializeComponent();
+            discordRPCManager = new DiscordRPCManager();
             InitializeFastColoredTextBox();
             this.KeyPreview = true;
             this.KeyDown += Form1_KeyDown;
@@ -96,6 +100,7 @@ namespace PawnDevelop
                 if (FileOperations.OpenFile(fastColoredTextBox1, out string newFilePath))
                 {
                     filePath = newFilePath;
+                    discordRPCManager.UpdatePresenceOnFileOpenOrEdit(filePath);
                 }
             }
 
@@ -144,6 +149,7 @@ namespace PawnDevelop
             if (FileOperations.OpenFile(fastColoredTextBox1, out string newFilePath))
             {
                 filePath = newFilePath;
+                discordRPCManager.UpdatePresenceOnFileOpenOrEdit(filePath);
             }
         }
 
@@ -298,6 +304,12 @@ namespace PawnDevelop
 
             BackColor = darkBackColor;
             ForeColor = darkForeColor;
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            base.OnFormClosing(e);
+            discordRPCManager.OnFormClosing();
         }
     }
 }

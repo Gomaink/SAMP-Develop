@@ -40,6 +40,10 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "dependencies": {
+            "DiscordRichPresence": {
+              "target": "Package",
+              "version": "[1.2.1.24, )"
+            },
             "FCTB": {
               "target": "Package",
               "version": "[2.16.24, )"

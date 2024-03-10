@@ -18,3 +18,5 @@ C:\Users\Gomes\source\repos\PawnDevelop\PawnDevelop\obj\Debug\net8.0-windows\Paw
 C:\Users\Gomes\source\repos\PawnDevelop\PawnDevelop\obj\Debug\net8.0-windows\PawnDevelop.csproj.AssemblyReference.cache
 C:\Users\Gomes\source\repos\PawnDevelop\PawnDevelop\obj\Debug\net8.0-windows\PawnDevelop.csproj.CopyComplete
 C:\Users\Gomes\source\repos\PawnDevelop\PawnDevelop\bin\Debug\net8.0-windows\FastColoredTextBox.dll
+C:\Users\Gomes\source\repos\PawnDevelop\PawnDevelop\bin\Debug\net8.0-windows\DiscordRPC.dll
+C:\Users\Gomes\source\repos\PawnDevelop\PawnDevelop\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
