@@ -166,7 +166,7 @@ namespace WindowsFormsApp
                 SaveFile(richTextBox, filePath);
                 if (!File.Exists(compilerPath))
                 {
-                    MessageBox.Show("Compiler pawncc.exe not found in file directory.\r\n", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Compiler pawncc.exe not found in file directory.\r\n", "Compiler Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
@@ -195,12 +195,12 @@ namespace WindowsFormsApp
                 }
                 else
                 {
-                    MessageBox.Show($"{error}", "Compilation failed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show($"{error}", "Compiler Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error compiling the file: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error compiling the file: " + ex.Message, "Compiler Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

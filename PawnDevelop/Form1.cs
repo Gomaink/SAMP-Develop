@@ -11,6 +11,8 @@ namespace PawnDevelop
         {
             InitializeComponent();
             richTextBox1.BorderStyle = BorderStyle.None;
+            this.KeyPreview = true;
+            this.KeyDown += Form1_KeyDown;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -22,6 +24,66 @@ namespace PawnDevelop
         {
 
             richTextBox1.Size = new System.Drawing.Size(this.ClientSize.Width - 50, this.ClientSize.Height - 50);
+        }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.N) //new file
+            {
+                FileOperations.CreateNewFile(richTextBox1, filePath);
+            }
+
+            if (e.Control && e.KeyCode == Keys.O) //open file
+            {
+                if (FileOperations.OpenFile(richTextBox1, out string newFilePath))
+                {
+                    filePath = newFilePath;
+                }
+            }
+
+            if (e.Control && e.KeyCode == Keys.S) //save file
+            {
+                if (!string.IsNullOrEmpty(filePath))
+                    FileOperations.SaveFile(richTextBox1, filePath);
+                else
+                    FileOperations.SaveFileAs(richTextBox1, ref filePath);
+                e.SuppressKeyPress = true;
+            }
+
+            if (e.Control && e.KeyCode == Keys.F) //find
+            {
+                FileOperations.Find(richTextBox1);
+            }
+
+            if (e.Control && e.KeyCode == Keys.H) //replace
+            {
+                FileOperations.Replace(richTextBox1);
+            }
+
+            if (e.Control && e.KeyCode == Keys.G) //go to
+            {
+                FileOperations.GoTo(richTextBox1);
+            }
+
+            if (e.KeyCode == Keys.F5) //compile file
+            {
+                if (!string.IsNullOrEmpty(filePath))
+                {
+                    string extension = Path.GetExtension(filePath);
+                    if (extension.Equals(".pwn", StringComparison.OrdinalIgnoreCase))
+                    {
+                        FileOperations.CompilePawnFile(richTextBox1, filePath);
+                    }
+                    else
+                    {
+                        MessageBox.Show("The file is not a .pwn file or has not yet been saved.", "Compiler Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("The file path is empty.", "Compiler Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void FileToolStripMenuItem_Click(object sender, EventArgs e)
@@ -116,12 +178,12 @@ namespace PawnDevelop
                 }
                 else
                 {
-                    MessageBox.Show("The file is not a .pwn file or has not yet been saved.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("The file is not a .pwn file or has not yet been saved.", "Compiler Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                MessageBox.Show("The file path is empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("The file path is empty.", "Compiler Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
