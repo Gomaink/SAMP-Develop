@@ -142,7 +142,7 @@
             undoToolStripMenuItem.BackColor = Color.FromArgb(35, 35, 35);
             undoToolStripMenuItem.ForeColor = Color.White;
             undoToolStripMenuItem.Name = "undoToolStripMenuItem";
-            undoToolStripMenuItem.Size = new Size(167, 22);
+            undoToolStripMenuItem.Size = new Size(180, 22);
             undoToolStripMenuItem.Text = "Undo";
             undoToolStripMenuItem.Click += UndoToolStripMenuItem_Click;
             // 
@@ -151,7 +151,7 @@
             cutToolStripMenuItem.BackColor = Color.FromArgb(35, 35, 35);
             cutToolStripMenuItem.ForeColor = Color.White;
             cutToolStripMenuItem.Name = "cutToolStripMenuItem";
-            cutToolStripMenuItem.Size = new Size(167, 22);
+            cutToolStripMenuItem.Size = new Size(180, 22);
             cutToolStripMenuItem.Text = "Cut";
             cutToolStripMenuItem.Click += CutToolStripMenuItem_Click;
             // 
@@ -160,7 +160,7 @@
             copyToolStripMenuItem.BackColor = Color.FromArgb(35, 35, 35);
             copyToolStripMenuItem.ForeColor = Color.White;
             copyToolStripMenuItem.Name = "copyToolStripMenuItem";
-            copyToolStripMenuItem.Size = new Size(167, 22);
+            copyToolStripMenuItem.Size = new Size(180, 22);
             copyToolStripMenuItem.Text = "Copy";
             copyToolStripMenuItem.Click += CopyToolStripMenuItem_Click;
             // 
@@ -169,7 +169,7 @@
             pasteToolStripMenuItem.BackColor = Color.FromArgb(35, 35, 35);
             pasteToolStripMenuItem.ForeColor = Color.White;
             pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
-            pasteToolStripMenuItem.Size = new Size(167, 22);
+            pasteToolStripMenuItem.Size = new Size(180, 22);
             pasteToolStripMenuItem.Text = "Paste";
             pasteToolStripMenuItem.Click += PasteToolStripMenuItem_Click;
             // 
@@ -178,7 +178,7 @@
             deleteToolStripMenuItem.BackColor = Color.FromArgb(35, 35, 35);
             deleteToolStripMenuItem.ForeColor = Color.White;
             deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            deleteToolStripMenuItem.Size = new Size(167, 22);
+            deleteToolStripMenuItem.Size = new Size(180, 22);
             deleteToolStripMenuItem.Text = "Delete";
             deleteToolStripMenuItem.Click += DeleteToolStripMenuItem_Click;
             // 
@@ -187,31 +187,34 @@
             findToolStripMenuItem.BackColor = Color.FromArgb(35, 35, 35);
             findToolStripMenuItem.ForeColor = Color.White;
             findToolStripMenuItem.Name = "findToolStripMenuItem";
-            findToolStripMenuItem.Size = new Size(167, 22);
+            findToolStripMenuItem.Size = new Size(180, 22);
             findToolStripMenuItem.Text = "Find (Ctrl+F)";
+            findToolStripMenuItem.Click += FindToolStripMenuItem_Click;
             // 
             // replaceToolStripMenuItem
             // 
             replaceToolStripMenuItem.BackColor = Color.FromArgb(35, 35, 35);
             replaceToolStripMenuItem.ForeColor = Color.White;
             replaceToolStripMenuItem.Name = "replaceToolStripMenuItem";
-            replaceToolStripMenuItem.Size = new Size(167, 22);
+            replaceToolStripMenuItem.Size = new Size(180, 22);
             replaceToolStripMenuItem.Text = "Replace (Ctrl+H)";
+            replaceToolStripMenuItem.Click += ReplaceToolStripMenuItem_Click;
             // 
             // goToToolStripMenuItem
             // 
             goToToolStripMenuItem.BackColor = Color.FromArgb(35, 35, 35);
             goToToolStripMenuItem.ForeColor = Color.White;
             goToToolStripMenuItem.Name = "goToToolStripMenuItem";
-            goToToolStripMenuItem.Size = new Size(167, 22);
+            goToToolStripMenuItem.Size = new Size(180, 22);
             goToToolStripMenuItem.Text = "Go to... (Ctrl+G)";
+            goToToolStripMenuItem.Click += GoToToolStripMenuItem_Click;
             // 
             // selectAllToolStripMenuItem
             // 
             selectAllToolStripMenuItem.BackColor = Color.FromArgb(35, 35, 35);
             selectAllToolStripMenuItem.ForeColor = Color.White;
             selectAllToolStripMenuItem.Name = "selectAllToolStripMenuItem";
-            selectAllToolStripMenuItem.Size = new Size(167, 22);
+            selectAllToolStripMenuItem.Size = new Size(180, 22);
             selectAllToolStripMenuItem.Text = "Select All (Ctrl+A)";
             selectAllToolStripMenuItem.Click += SelectAllToolStripMenuItem_Click;
             // 

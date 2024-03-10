@@ -42,7 +42,7 @@ namespace PawnDevelop
             fastColoredTextBox1.LineNumberColor = Color.White;
             fastColoredTextBox1.IndentBackColor = Color.FromArgb(30, 30, 30);
             fastColoredTextBox1.TextChanged += fastColoredTextBox1_TextChanged;
- 
+
             Controls.Add(fastColoredTextBox1);
         }
 
@@ -190,6 +190,21 @@ namespace PawnDevelop
             fastColoredTextBox1.SelectedText = string.Empty;
         }
 
+        private void FindToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fastColoredTextBox1.ShowFindDialog();
+        }
+
+        private void ReplaceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fastColoredTextBox1.ShowReplaceDialog();
+        }
+
+        private void GoToToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fastColoredTextBox1.ShowGoToDialog();
+        }
+
         private void SelectAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
             fastColoredTextBox1.SelectAll();
@@ -283,11 +298,6 @@ namespace PawnDevelop
 
             BackColor = darkBackColor;
             ForeColor = darkForeColor;
-        }
-
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
