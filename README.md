@@ -1,5 +1,5 @@
 # PawnDevelop
-An integrated development environment (IDE), made as an alternative to "Pawno", an editor and compiler for Pawn scripts.
+A open-source integrated development environment (IDE), made as an alternative to "Pawno", an editor and compiler for Pawn scripts.
 <hr>
 Pawn Develop is a Windows Forms application that provides a text editing interface with custom syntax highlighting for the Pawn language. It uses the FastColoredTextBoxNS library to provide an advanced text area with support for various features, including keyword highlighting , types, macros, literals, comments and strings.
 
