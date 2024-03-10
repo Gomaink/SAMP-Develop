@@ -56,7 +56,6 @@
             darkToolStripMenuItem = new ToolStripMenuItem();
             helpToolStripMenuItem = new ToolStripMenuItem();
             aboutPawnDevelopToolStripMenuItem = new ToolStripMenuItem();
-            richTextBox1 = new RichTextBox();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -190,7 +189,6 @@
             findToolStripMenuItem.Name = "findToolStripMenuItem";
             findToolStripMenuItem.Size = new Size(167, 22);
             findToolStripMenuItem.Text = "Find (Ctrl+F)";
-            findToolStripMenuItem.Click += FindToolStripMenuItem_Click;
             // 
             // replaceToolStripMenuItem
             // 
@@ -199,7 +197,6 @@
             replaceToolStripMenuItem.Name = "replaceToolStripMenuItem";
             replaceToolStripMenuItem.Size = new Size(167, 22);
             replaceToolStripMenuItem.Text = "Replace (Ctrl+H)";
-            replaceToolStripMenuItem.Click += ReplaceToolStripMenuItem_Click;
             // 
             // goToToolStripMenuItem
             // 
@@ -208,7 +205,6 @@
             goToToolStripMenuItem.Name = "goToToolStripMenuItem";
             goToToolStripMenuItem.Size = new Size(167, 22);
             goToToolStripMenuItem.Text = "Go to... (Ctrl+G)";
-            goToToolStripMenuItem.Click += GoToToolStripMenuItem_Click;
             // 
             // selectAllToolStripMenuItem
             // 
@@ -251,7 +247,7 @@
             themeToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { lightToolStripMenuItem, darkToolStripMenuItem });
             themeToolStripMenuItem.ForeColor = Color.White;
             themeToolStripMenuItem.Name = "themeToolStripMenuItem";
-            themeToolStripMenuItem.Size = new Size(180, 22);
+            themeToolStripMenuItem.Size = new Size(113, 22);
             themeToolStripMenuItem.Text = "Theme";
             // 
             // lightToolStripMenuItem
@@ -259,7 +255,7 @@
             lightToolStripMenuItem.BackColor = Color.FromArgb(35, 35, 35);
             lightToolStripMenuItem.ForeColor = Color.White;
             lightToolStripMenuItem.Name = "lightToolStripMenuItem";
-            lightToolStripMenuItem.Size = new Size(180, 22);
+            lightToolStripMenuItem.Size = new Size(101, 22);
             lightToolStripMenuItem.Text = "Light";
             lightToolStripMenuItem.Click += lightToolStripMenuItem_Click;
             // 
@@ -268,7 +264,7 @@
             darkToolStripMenuItem.BackColor = Color.FromArgb(35, 35, 35);
             darkToolStripMenuItem.ForeColor = Color.White;
             darkToolStripMenuItem.Name = "darkToolStripMenuItem";
-            darkToolStripMenuItem.Size = new Size(180, 22);
+            darkToolStripMenuItem.Size = new Size(101, 22);
             darkToolStripMenuItem.Text = "Dark";
             darkToolStripMenuItem.Click += darkToolStripMenuItem_Click;
             // 
@@ -288,25 +284,12 @@
             aboutPawnDevelopToolStripMenuItem.Size = new Size(184, 22);
             aboutPawnDevelopToolStripMenuItem.Text = "About PawnDevelop";
             // 
-            // richTextBox1
-            // 
-            richTextBox1.BackColor = Color.FromArgb(30, 30, 30);
-            richTextBox1.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            richTextBox1.ForeColor = Color.White;
-            richTextBox1.Location = new Point(12, 39);
-            richTextBox1.Name = "richTextBox1";
-            richTextBox1.RightToLeft = RightToLeft.No;
-            richTextBox1.Size = new Size(776, 399);
-            richTextBox1.TabIndex = 2;
-            richTextBox1.Text = "";
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(30, 30, 30);
             ClientSize = new Size(800, 450);
-            Controls.Add(richTextBox1);
             Controls.Add(menuStrip1);
             Font = new Font("Microsoft Sans Serif", 9F);
             ForeColor = SystemColors.ButtonFace;
@@ -346,7 +329,6 @@
         private ToolStripMenuItem selectAllToolStripMenuItem;
         private ToolStripMenuItem compileToolStripMenuItem;
         private ToolStripMenuItem aboutPawnDevelopToolStripMenuItem;
-        private RichTextBox richTextBox1;
         private ToolStripMenuItem themeToolStripMenuItem;
         private ToolStripMenuItem lightToolStripMenuItem;
         private ToolStripMenuItem darkToolStripMenuItem;

@@ -15,3 +15,6 @@ C:\Users\Gomes\source\repos\PawnDevelop\PawnDevelop\obj\Debug\net8.0-windows\Paw
 C:\Users\Gomes\source\repos\PawnDevelop\PawnDevelop\obj\Debug\net8.0-windows\PawnDevelop.genruntimeconfig.cache
 C:\Users\Gomes\source\repos\PawnDevelop\PawnDevelop\obj\Debug\net8.0-windows\ref\PawnDevelop.dll
 C:\Users\Gomes\source\repos\PawnDevelop\PawnDevelop\obj\Debug\net8.0-windows\PawnDevelop.Properties.Resources.resources
+C:\Users\Gomes\source\repos\PawnDevelop\PawnDevelop\obj\Debug\net8.0-windows\PawnDevelop.csproj.AssemblyReference.cache
+C:\Users\Gomes\source\repos\PawnDevelop\PawnDevelop\obj\Debug\net8.0-windows\PawnDevelop.csproj.CopyComplete
+C:\Users\Gomes\source\repos\PawnDevelop\PawnDevelop\bin\Debug\net8.0-windows\FastColoredTextBox.dll

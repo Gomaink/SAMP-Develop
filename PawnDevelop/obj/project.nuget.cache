@@ -1,8 +1,21 @@
 {
   "version": 2,
-  "dgSpecHash": "CTJvbNPXro84hjKoloXlQ7tAcaYyx2L/l72viOgVrKQrGyJPRgpcNkWj7TEITJeymTTrbggkkKVSJYPiOISCNQ==",
+  "dgSpecHash": "ceQLVAm4HqZV6NsJdehar8SiIWsFSTF2pS1Zi+WxXYMSR67bVCSfYpaycivh1uqKaHd+F1VJfhED4XXivAAINA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Gomes\\source\\repos\\PawnDevelop\\PawnDevelop\\PawnDevelop.csproj",
-  "expectedPackageFiles": [],
-  "logs": []
+  "expectedPackageFiles": [
+    "C:\\Users\\Gomes\\.nuget\\packages\\fctb\\2.16.24\\fctb.2.16.24.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "O pacote 'FCTB 2.16.24' foi restaurado usando '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' em vez da estrutura de destino do projeto 'net8.0-windows7.0'. Esse pacote pode não ser totalmente compatível com o seu projeto.",
+      "libraryId": "FCTB",
+      "targetGraphs": [
+        "net8.0-windows7.0"
+      ]
+    }
+  ]
 }
