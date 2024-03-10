@@ -17,7 +17,7 @@ Pawn Develop is a Windows Forms application that provides a text editing interfa
 
 <h3>Dark theme</h3>
 
-![](https://i.imgur.com/lyK3EVt.png)
+![](https://imgur.com/u7aHvIA.png)
 <h3>Light theme</h3>
 
-![](https://i.imgur.com/fEityO5.png)
+![](https://imgur.com/cAtMWmw.png)
