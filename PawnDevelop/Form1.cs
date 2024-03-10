@@ -39,8 +39,10 @@ namespace PawnDevelop
             fastColoredTextBox1.Name = "fastColoredTextBox1";
             fastColoredTextBox1.Size = new Size(776, 399);
             fastColoredTextBox1.TabIndex = 1;
-            fastColoredTextBox1.LineNumberColor = Color.Red;
+            fastColoredTextBox1.LineNumberColor = Color.White;
+            fastColoredTextBox1.IndentBackColor = Color.FromArgb(30, 30, 30);
             fastColoredTextBox1.TextChanged += fastColoredTextBox1_TextChanged;
+ 
             Controls.Add(fastColoredTextBox1);
         }
 
@@ -58,11 +60,11 @@ namespace PawnDevelop
 
             e.ChangedRange.ClearStyle(StyleIndex.All);
 
-            e.ChangedRange.SetStyle(keywordStyle, @"\b(new|public|auto|break|case|char|const|continue|default|do|double|else|enum|extern|float|for|goto|if|inline|int|long|register|restrict|return|short|signed|sizeof|static|struct|switch|typedef|union|unsigned|void|volatile|while)\b(?![^\/]*\/\*(?:(?!\*\/)[\s\S])*?[^\/]*\*\/)");
+            e.ChangedRange.SetStyle(keywordStyle, @"\b(new|main|public|auto|break|case|char|const|continue|default|do|double|else|enum|extern|float|for|goto|if|inline|int|long|register|restrict|return|short|signed|sizeof|static|struct|switch|typedef|union|unsigned|void|volatile|while)\b(?![^\/]*\/\*(?:(?!\*\/)[\s\S])*?[^\/]*\*\/)");
 
             e.ChangedRange.SetStyle(typeStyle, @"\b(bool|_Bool|char|short|int|long|float|double|signed|unsigned|void|_Complex|_Imaginary)\b");
 
-            e.ChangedRange.SetStyle(macroStyle, @"#(define|include|pragma)\b");
+            e.ChangedRange.SetStyle(macroStyle, @"#(define|include|pragma|endif)\b");
 
             e.ChangedRange.SetStyle(literalStyle, @"\b(true|false|null)\b");
 
@@ -241,6 +243,9 @@ namespace PawnDevelop
             fastColoredTextBox1.BackColor = lightBackColor;
             fastColoredTextBox1.ForeColor = lightForeColor;
 
+            fastColoredTextBox1.LineNumberColor = Color.Black;
+            fastColoredTextBox1.IndentBackColor = Color.FromArgb(255, 255, 255);
+
             BackColor = lightBackColor;
             ForeColor = lightForeColor;
         }
@@ -272,6 +277,9 @@ namespace PawnDevelop
 
             fastColoredTextBox1.BackColor = darkBackColor;
             fastColoredTextBox1.ForeColor = darkForeColor;
+
+            fastColoredTextBox1.LineNumberColor = Color.White;
+            fastColoredTextBox1.IndentBackColor = Color.FromArgb(30, 30, 30);
 
             BackColor = darkBackColor;
             ForeColor = darkForeColor;
