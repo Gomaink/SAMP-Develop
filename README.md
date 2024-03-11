@@ -9,11 +9,13 @@ Pawn Develop is a Windows Forms application that provides a text editing interfa
 
 - Syntax highlighting is applied dynamically as the user types or edits text, ensuring that code is always presented clearly and readably. The editor also supports code folding markup to visually organize blocks of code and make large files easier to navigate.
 
+- The editor has a sidebar, where you can browse your project's folders and files, making it easier to program a modular script, for example.
+
 - Additionally, the editor offers the ability to switch between light and dark themes, providing an editing experience that is personalized and adaptable to the user's visual preferences.
 
 - The editor offers a discord status with the file you are editing and how long you have been editing, this with the help of the DiscordRPC library, which creates a custom Rich Presence.
 
-- Overall, Pawn Develop provides a robust and flexible platform for editing Pawn language text, with advanced syntax highlighting, file management, and visual customization features. It is suitable for developers looking for a powerful and highly configurable text editing tool.
+Overall, Pawn Develop provides a robust and flexible platform for editing Pawn language text, with advanced syntax highlighting, file management, and visual customization features. It is suitable for developers looking for a powerful and highly configurable text editing tool.
 
 ## Images
 <h3>Dark theme</h3>
