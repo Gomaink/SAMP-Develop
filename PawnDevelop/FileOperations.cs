@@ -116,7 +116,7 @@ namespace WindowsFormsApp
 
         public static void Exit(FastColoredTextBox fastColoredTextBox, string filePath)
         {
-            if (!string.IsNullOrEmpty(fastColoredTextBox.Text) && fastColoredTextBox.Text != fastColoredTextBox.Tag?.ToString())
+            if (!string.IsNullOrEmpty(fastColoredTextBox.Text) && fastColoredTextBox.Text != fastColoredTextBox.Tag?.ToString() && fastColoredTextBox.Text != File.ReadAllText(filePath))
             {
                 DialogResult result = MessageBox.Show("Do you want to save changes before exiting?", "Save changes", MessageBoxButtons.YesNoCancel);
                 if (result == DialogResult.Yes)

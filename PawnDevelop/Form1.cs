@@ -125,9 +125,8 @@ namespace PawnDevelop
                 TreeNode rootNode = new TreeNode(Path.GetFileName(newFolderPath));
                 treeView1.Nodes.Add(rootNode);
                 PopulateTreeView(newFolderPath, rootNode);
-
                 folderPath = newFolderPath;
-                MessageBox.Show($"folderpath {folderPath}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
             else
             {
@@ -373,7 +372,28 @@ namespace PawnDevelop
 
         private void treeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
-            if (e.Node.Text.EndsWith(".pwn", StringComparison.OrdinalIgnoreCase) || 
+            if (!string.IsNullOrEmpty(fastColoredTextBox1.Text) && fastColoredTextBox1.Text != fastColoredTextBox1.Tag?.ToString() && fastColoredTextBox1.Text != File.ReadAllText(filePath))
+            {
+                DialogResult result = MessageBox.Show("Do you want to save changes before opening a new file?", "Save changes", MessageBoxButtons.YesNoCancel);
+                if (result == DialogResult.Yes)
+                {
+                    if (!string.IsNullOrEmpty(filePath))
+                    {
+                        FileOperations.SaveFile(fastColoredTextBox1, filePath);
+                    }
+                    else
+                    {
+                        FileOperations.SaveFileAs(fastColoredTextBox1, ref filePath);
+                    }
+                }
+                else if (result == DialogResult.Cancel)
+                {
+                    return;
+                }
+            }
+
+            // Abre o novo arquivo selecionado pelo usuário
+            if (e.Node.Text.EndsWith(".pwn", StringComparison.OrdinalIgnoreCase) ||
                 e.Node.Text.EndsWith(".txt", StringComparison.OrdinalIgnoreCase) ||
                 e.Node.Text.EndsWith(".cfg", StringComparison.OrdinalIgnoreCase) ||
                 e.Node.Text.EndsWith(".json", StringComparison.OrdinalIgnoreCase))
@@ -392,12 +412,14 @@ namespace PawnDevelop
             return string.Join("\\", relativePathSegments);
         }
 
-        private void OpenNodeFile(string filePath)
+        private void OpenNodeFile(string efilePath)
         {
             try
             {
-                string content = File.ReadAllText(filePath);
+                string content = File.ReadAllText(efilePath);
                 fastColoredTextBox1.Text = content;
+                filePath = efilePath;
+                discordRPCManager.UpdatePresenceOnFileOpenOrEdit(filePath);
             }
             catch (Exception ex)
             {
