@@ -35,6 +35,7 @@
             fileToolStripMenuItem = new ToolStripMenuItem();
             newToolStripMenuItem = new ToolStripMenuItem();
             openToolStripMenuItem = new ToolStripMenuItem();
+            openFolderToolStripMenuItem = new ToolStripMenuItem();
             saveToolStripMenuItem = new ToolStripMenuItem();
             saveAsToolStripMenuItem = new ToolStripMenuItem();
             exitToolStripMenuItem = new ToolStripMenuItem();
@@ -56,6 +57,7 @@
             darkToolStripMenuItem = new ToolStripMenuItem();
             helpToolStripMenuItem = new ToolStripMenuItem();
             aboutPawnDevelopToolStripMenuItem = new ToolStripMenuItem();
+            treeView1 = new TreeView();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -77,7 +79,7 @@
             // 
             // fileToolStripMenuItem
             // 
-            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { newToolStripMenuItem, openToolStripMenuItem, saveToolStripMenuItem, saveAsToolStripMenuItem, exitToolStripMenuItem });
+            fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { newToolStripMenuItem, openToolStripMenuItem, openFolderToolStripMenuItem, saveToolStripMenuItem, saveAsToolStripMenuItem, exitToolStripMenuItem });
             fileToolStripMenuItem.ForeColor = Color.White;
             fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             fileToolStripMenuItem.Size = new Size(39, 20);
@@ -101,6 +103,15 @@
             openToolStripMenuItem.Size = new Size(149, 22);
             openToolStripMenuItem.Text = "Open (Ctrl+O)";
             openToolStripMenuItem.Click += OpenToolStripMenuItem_Click;
+            // 
+            // openFolderToolStripMenuItem
+            // 
+            openFolderToolStripMenuItem.BackColor = Color.FromArgb(35, 35, 35);
+            openFolderToolStripMenuItem.ForeColor = Color.White;
+            openFolderToolStripMenuItem.Name = "openFolderToolStripMenuItem";
+            openFolderToolStripMenuItem.Size = new Size(149, 22);
+            openFolderToolStripMenuItem.Text = "Open Folder";
+            openFolderToolStripMenuItem.Click += OpenFolderToolStripMenuItem_Click;
             // 
             // saveToolStripMenuItem
             // 
@@ -142,7 +153,7 @@
             undoToolStripMenuItem.BackColor = Color.FromArgb(35, 35, 35);
             undoToolStripMenuItem.ForeColor = Color.White;
             undoToolStripMenuItem.Name = "undoToolStripMenuItem";
-            undoToolStripMenuItem.Size = new Size(180, 22);
+            undoToolStripMenuItem.Size = new Size(167, 22);
             undoToolStripMenuItem.Text = "Undo";
             undoToolStripMenuItem.Click += UndoToolStripMenuItem_Click;
             // 
@@ -151,7 +162,7 @@
             cutToolStripMenuItem.BackColor = Color.FromArgb(35, 35, 35);
             cutToolStripMenuItem.ForeColor = Color.White;
             cutToolStripMenuItem.Name = "cutToolStripMenuItem";
-            cutToolStripMenuItem.Size = new Size(180, 22);
+            cutToolStripMenuItem.Size = new Size(167, 22);
             cutToolStripMenuItem.Text = "Cut";
             cutToolStripMenuItem.Click += CutToolStripMenuItem_Click;
             // 
@@ -160,7 +171,7 @@
             copyToolStripMenuItem.BackColor = Color.FromArgb(35, 35, 35);
             copyToolStripMenuItem.ForeColor = Color.White;
             copyToolStripMenuItem.Name = "copyToolStripMenuItem";
-            copyToolStripMenuItem.Size = new Size(180, 22);
+            copyToolStripMenuItem.Size = new Size(167, 22);
             copyToolStripMenuItem.Text = "Copy";
             copyToolStripMenuItem.Click += CopyToolStripMenuItem_Click;
             // 
@@ -169,7 +180,7 @@
             pasteToolStripMenuItem.BackColor = Color.FromArgb(35, 35, 35);
             pasteToolStripMenuItem.ForeColor = Color.White;
             pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
-            pasteToolStripMenuItem.Size = new Size(180, 22);
+            pasteToolStripMenuItem.Size = new Size(167, 22);
             pasteToolStripMenuItem.Text = "Paste";
             pasteToolStripMenuItem.Click += PasteToolStripMenuItem_Click;
             // 
@@ -178,7 +189,7 @@
             deleteToolStripMenuItem.BackColor = Color.FromArgb(35, 35, 35);
             deleteToolStripMenuItem.ForeColor = Color.White;
             deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            deleteToolStripMenuItem.Size = new Size(180, 22);
+            deleteToolStripMenuItem.Size = new Size(167, 22);
             deleteToolStripMenuItem.Text = "Delete";
             deleteToolStripMenuItem.Click += DeleteToolStripMenuItem_Click;
             // 
@@ -187,7 +198,7 @@
             findToolStripMenuItem.BackColor = Color.FromArgb(35, 35, 35);
             findToolStripMenuItem.ForeColor = Color.White;
             findToolStripMenuItem.Name = "findToolStripMenuItem";
-            findToolStripMenuItem.Size = new Size(180, 22);
+            findToolStripMenuItem.Size = new Size(167, 22);
             findToolStripMenuItem.Text = "Find (Ctrl+F)";
             findToolStripMenuItem.Click += FindToolStripMenuItem_Click;
             // 
@@ -196,7 +207,7 @@
             replaceToolStripMenuItem.BackColor = Color.FromArgb(35, 35, 35);
             replaceToolStripMenuItem.ForeColor = Color.White;
             replaceToolStripMenuItem.Name = "replaceToolStripMenuItem";
-            replaceToolStripMenuItem.Size = new Size(180, 22);
+            replaceToolStripMenuItem.Size = new Size(167, 22);
             replaceToolStripMenuItem.Text = "Replace (Ctrl+H)";
             replaceToolStripMenuItem.Click += ReplaceToolStripMenuItem_Click;
             // 
@@ -205,7 +216,7 @@
             goToToolStripMenuItem.BackColor = Color.FromArgb(35, 35, 35);
             goToToolStripMenuItem.ForeColor = Color.White;
             goToToolStripMenuItem.Name = "goToToolStripMenuItem";
-            goToToolStripMenuItem.Size = new Size(180, 22);
+            goToToolStripMenuItem.Size = new Size(167, 22);
             goToToolStripMenuItem.Text = "Go to... (Ctrl+G)";
             goToToolStripMenuItem.Click += GoToToolStripMenuItem_Click;
             // 
@@ -214,7 +225,7 @@
             selectAllToolStripMenuItem.BackColor = Color.FromArgb(35, 35, 35);
             selectAllToolStripMenuItem.ForeColor = Color.White;
             selectAllToolStripMenuItem.Name = "selectAllToolStripMenuItem";
-            selectAllToolStripMenuItem.Size = new Size(180, 22);
+            selectAllToolStripMenuItem.Size = new Size(167, 22);
             selectAllToolStripMenuItem.Text = "Select All (Ctrl+A)";
             selectAllToolStripMenuItem.Click += SelectAllToolStripMenuItem_Click;
             // 
@@ -287,12 +298,24 @@
             aboutPawnDevelopToolStripMenuItem.Size = new Size(184, 22);
             aboutPawnDevelopToolStripMenuItem.Text = "About PawnDevelop";
             // 
+            // treeView1
+            // 
+            treeView1.BackColor = Color.FromArgb(35, 35, 35);
+            treeView1.ForeColor = Color.White;
+            treeView1.Location = new Point(12, 27);
+            treeView1.Name = "treeView1";
+            treeView1.Size = new Size(152, 411);
+            treeView1.TabIndex = 2;
+            treeView1.NodeMouseClick += treeView1_NodeMouseClick;
+            treeView1.Dock = DockStyle.Left; 
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(30, 30, 30);
             ClientSize = new Size(800, 450);
+            Controls.Add(treeView1);
             Controls.Add(menuStrip1);
             Font = new Font("Microsoft Sans Serif", 9F);
             ForeColor = SystemColors.ButtonFace;
@@ -335,5 +358,7 @@
         private ToolStripMenuItem themeToolStripMenuItem;
         private ToolStripMenuItem lightToolStripMenuItem;
         private ToolStripMenuItem darkToolStripMenuItem;
+        private ToolStripMenuItem openFolderToolStripMenuItem;
+        private TreeView treeView1;
     }
 }

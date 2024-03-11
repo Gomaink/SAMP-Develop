@@ -4,12 +4,15 @@ using System.Text.RegularExpressions;
 using System;
 using FastColoredTextBoxNS;
 using DiscordRPC;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.IO;
 
 namespace PawnDevelop
 {
     public partial class Form1 : Form
     {
         private string filePath = "";
+        private string folderPath = "";
 
         private FastColoredTextBox fastColoredTextBox1;
         private DiscordRPCManager discordRPCManager;
@@ -22,70 +25,17 @@ namespace PawnDevelop
             this.KeyPreview = true;
             this.KeyDown += Form1_KeyDown;
         }
+
         private void Form1_Load(object sender, EventArgs e)
         {
             fastColoredTextBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
         }
+
         private void Form1_Resize(object sender, EventArgs e)
         {
 
             fastColoredTextBox1.Size = new System.Drawing.Size(this.ClientSize.Width - 50, this.ClientSize.Height - 50);
-        }
-
-        private void InitializeFastColoredTextBox()
-        {
-            fastColoredTextBox1 = new FastColoredTextBox();
-            fastColoredTextBox1.BorderStyle = BorderStyle.None;
-            fastColoredTextBox1.BackColor = Color.FromArgb(30, 30, 30);
-            fastColoredTextBox1.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            fastColoredTextBox1.ForeColor = Color.White;
-            fastColoredTextBox1.Location = new Point(12, 39);
-            fastColoredTextBox1.Name = "fastColoredTextBox1";
-            fastColoredTextBox1.Size = new Size(776, 399);
-            fastColoredTextBox1.TabIndex = 1;
-            fastColoredTextBox1.LineNumberColor = Color.White;
-            fastColoredTextBox1.IndentBackColor = Color.FromArgb(30, 30, 30);
-            fastColoredTextBox1.TextChanged += fastColoredTextBox1_TextChanged;
-
-            Controls.Add(fastColoredTextBox1);
-        }
-
-        Style keywordStyle = new TextStyle(new SolidBrush(Color.FromArgb(189, 147, 249)), null, FontStyle.Regular);
-        Style typeStyle = new TextStyle(new SolidBrush(Color.FromArgb(139, 233, 253)), null, FontStyle.Regular);
-        Style literalStyle = new TextStyle(new SolidBrush(Color.FromArgb(255, 121, 198)), null, FontStyle.Regular);
-        Style commentStyle = new TextStyle(new SolidBrush(Color.FromArgb(80, 250, 123)), null, FontStyle.Regular);
-        Style stringStyle = new TextStyle(new SolidBrush(Color.FromArgb(255, 85, 85)), null, FontStyle.Regular);
-        Style macroStyle = new TextStyle(new SolidBrush(Color.FromArgb(255, 184, 108)), null, FontStyle.Regular);
-
-        private void fastColoredTextBox1_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            FastColoredTextBoxNS.FastColoredTextBox textBox = sender as FastColoredTextBoxNS.FastColoredTextBox;
-            if (textBox == null) return;
-
-            e.ChangedRange.ClearStyle(StyleIndex.All);
-
-            e.ChangedRange.SetStyle(keywordStyle, @"\b(new|main|public|auto|break|case|char|const|continue|default|do|double|else|enum|extern|float|for|goto|if|inline|int|long|register|restrict|return|short|signed|sizeof|static|struct|switch|typedef|union|unsigned|void|volatile|while)\b(?![^\/]*\/\*(?:(?!\*\/)[\s\S])*?[^\/]*\*\/)");
-
-            e.ChangedRange.SetStyle(typeStyle, @"\b(bool|_Bool|char|short|int|long|float|double|signed|unsigned|void|_Complex|_Imaginary)\b");
-
-            e.ChangedRange.SetStyle(macroStyle, @"#(define|include|pragma|endif)\b");
-
-            e.ChangedRange.SetStyle(literalStyle, @"\b(true|false|null)\b");
-
-            FastColoredTextBoxNS.Range range = textBox.VisibleRange;
-            if (range == null)
-                range = textBox.Range;
-
-            range.SetStyle(commentStyle, @"//.*$", RegexOptions.Multiline);
-            range.SetStyle(commentStyle, @"/\*.*?\*/", RegexOptions.Singleline);
-            range.SetStyle(commentStyle, @"(/\*.*?\*/)|(/\*.*)", RegexOptions.Singleline);
-            range.SetStyle(commentStyle, @"(/\*.*?\*/)|(.*\*/)", RegexOptions.Singleline | RegexOptions.RightToLeft);
-
-            e.ChangedRange.SetStyle(stringStyle, "\"(?:\\\\\"|[^\"])*\"");
-
-            e.ChangedRange.ClearFoldingMarkers();
-            e.ChangedRange.SetFoldingMarkers("{", "}");
-            e.ChangedRange.SetFoldingMarkers(@"/\*", @"\*/");
+            treeView1.Height = this.ClientSize.Height - treeView1.Top;
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -132,6 +82,18 @@ namespace PawnDevelop
                     MessageBox.Show("The file path is empty.", "Compiler Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+            if (e.Control && e.KeyCode == Keys.J)
+            {
+                treeView1.Visible = !treeView1.Visible;
+                if (treeView1.Visible)
+                {
+                    fastColoredTextBox1.Size = new Size(fastColoredTextBox1.Size.Width + treeView1.Width, fastColoredTextBox1.Size.Height);
+                }
+                else
+                {
+                    fastColoredTextBox1.Size = new Size(fastColoredTextBox1.Size.Width - treeView1.Width, fastColoredTextBox1.Size.Height);
+                }
+            }
         }
 
         private void FileToolStripMenuItem_Click(object sender, EventArgs e)
@@ -150,6 +112,47 @@ namespace PawnDevelop
             {
                 filePath = newFilePath;
                 discordRPCManager.UpdatePresenceOnFileOpenOrEdit(filePath);
+            }
+        }
+
+        private void OpenFolderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string newFolderPath;
+            bool success = FileOperations.OpenFolder(fastColoredTextBox1, out newFolderPath);
+            if (success)
+            {
+                treeView1.Nodes.Clear();
+                TreeNode rootNode = new TreeNode(Path.GetFileName(newFolderPath));
+                treeView1.Nodes.Add(rootNode);
+                PopulateTreeView(newFolderPath, rootNode);
+
+                folderPath = newFolderPath;
+                MessageBox.Show($"folderpath {folderPath}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                MessageBox.Show("Failed to open folder.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void PopulateTreeView(string directory, TreeNode parentNode)
+        {
+            string[] subDirectories = Directory.GetDirectories(directory);
+
+            foreach (string subDirectory in subDirectories)
+            {
+                TreeNode node = new TreeNode(Path.GetFileName(subDirectory));
+                parentNode.Nodes.Add(node);
+
+                PopulateTreeView(subDirectory, node);
+            }
+
+            string[] files = Directory.GetFiles(directory);
+
+            foreach (string file in files)
+            {
+                TreeNode node = new TreeNode(Path.GetFileName(file));
+                parentNode.Nodes.Add(node);
             }
         }
 
@@ -300,16 +303,106 @@ namespace PawnDevelop
             fastColoredTextBox1.ForeColor = darkForeColor;
 
             fastColoredTextBox1.LineNumberColor = Color.White;
-            fastColoredTextBox1.IndentBackColor = Color.FromArgb(30, 30, 30);
+            fastColoredTextBox1.IndentBackColor = Color.FromArgb(35, 35, 35);
 
             BackColor = darkBackColor;
             ForeColor = darkForeColor;
+        }
+
+        private void InitializeFastColoredTextBox()
+        {
+            fastColoredTextBox1 = new FastColoredTextBox();
+            fastColoredTextBox1.BorderStyle = BorderStyle.None;
+            fastColoredTextBox1.BackColor = Color.FromArgb(30, 30, 30);
+            fastColoredTextBox1.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            fastColoredTextBox1.ForeColor = Color.White;
+            fastColoredTextBox1.Location = new Point(166, 27);
+            fastColoredTextBox1.Name = "fastColoredTextBox1";
+            fastColoredTextBox1.Size = new Size(600, 399);
+            fastColoredTextBox1.TabIndex = 1;
+            fastColoredTextBox1.LineNumberColor = Color.White;
+            fastColoredTextBox1.IndentBackColor = Color.FromArgb(30, 30, 30);
+            fastColoredTextBox1.TextChanged += fastColoredTextBox1_TextChanged;
+
+            Controls.Add(fastColoredTextBox1);
+        }
+
+        Style keywordStyle = new TextStyle(new SolidBrush(Color.FromArgb(189, 147, 249)), null, FontStyle.Regular);
+        Style typeStyle = new TextStyle(new SolidBrush(Color.FromArgb(139, 233, 253)), null, FontStyle.Regular);
+        Style literalStyle = new TextStyle(new SolidBrush(Color.FromArgb(255, 121, 198)), null, FontStyle.Regular);
+        Style commentStyle = new TextStyle(new SolidBrush(Color.FromArgb(80, 250, 123)), null, FontStyle.Regular);
+        Style stringStyle = new TextStyle(new SolidBrush(Color.FromArgb(255, 85, 85)), null, FontStyle.Regular);
+        Style macroStyle = new TextStyle(new SolidBrush(Color.FromArgb(255, 184, 108)), null, FontStyle.Regular);
+
+        private void fastColoredTextBox1_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            FastColoredTextBoxNS.FastColoredTextBox textBox = sender as FastColoredTextBoxNS.FastColoredTextBox;
+            if (textBox == null) return;
+
+            e.ChangedRange.ClearStyle(StyleIndex.All);
+
+            e.ChangedRange.SetStyle(keywordStyle, @"\b(new|main|public|auto|break|case|char|const|continue|default|do|double|else|enum|extern|float|for|goto|if|inline|int|long|register|restrict|return|short|signed|sizeof|static|struct|switch|typedef|union|unsigned|void|volatile|while)\b(?![^\/]*\/\*(?:(?!\*\/)[\s\S])*?[^\/]*\*\/)");
+
+            e.ChangedRange.SetStyle(typeStyle, @"\b(bool|_Bool|char|short|int|long|float|double|signed|unsigned|void|_Complex|_Imaginary)\b");
+
+            e.ChangedRange.SetStyle(macroStyle, @"#(define|include|pragma|endif)\b");
+
+            e.ChangedRange.SetStyle(literalStyle, @"\b(true|false|null)\b");
+
+            FastColoredTextBoxNS.Range range = textBox.VisibleRange;
+            if (range == null)
+                range = textBox.Range;
+
+            range.SetStyle(commentStyle, @"//.*$", RegexOptions.Multiline);
+            range.SetStyle(commentStyle, @"/\*.*?\*/", RegexOptions.Singleline);
+            range.SetStyle(commentStyle, @"(/\*.*?\*/)|(/\*.*)", RegexOptions.Singleline);
+            range.SetStyle(commentStyle, @"(/\*.*?\*/)|(.*\*/)", RegexOptions.Singleline | RegexOptions.RightToLeft);
+
+            e.ChangedRange.SetStyle(stringStyle, "\"(?:\\\\\"|[^\"])*\"");
+
+            e.ChangedRange.ClearFoldingMarkers();
+            e.ChangedRange.SetFoldingMarkers("{", "}");
+            e.ChangedRange.SetFoldingMarkers(@"/\*", @"\*/");
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             base.OnFormClosing(e);
             discordRPCManager.OnFormClosing();
+        }
+
+        private void treeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+        {
+            if (e.Node.Text.EndsWith(".pwn", StringComparison.OrdinalIgnoreCase) || 
+                e.Node.Text.EndsWith(".txt", StringComparison.OrdinalIgnoreCase) ||
+                e.Node.Text.EndsWith(".cfg", StringComparison.OrdinalIgnoreCase) ||
+                e.Node.Text.EndsWith(".json", StringComparison.OrdinalIgnoreCase))
+            {
+                string relativePath = GetRelativePath(e.Node);
+                string filePath = Path.Combine(folderPath, relativePath);
+                OpenNodeFile(filePath);
+            }
+        }
+
+        private string GetRelativePath(TreeNode node)
+        {
+            string[] pathSegments = node.FullPath.Split('\\');
+            string[] relativePathSegments = new string[pathSegments.Length - 1];
+            Array.Copy(pathSegments, 1, relativePathSegments, 0, pathSegments.Length - 1);
+            return string.Join("\\", relativePathSegments);
+        }
+
+        private void OpenNodeFile(string filePath)
+        {
+            try
+            {
+                string content = File.ReadAllText(filePath);
+                fastColoredTextBox1.Text = content;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error opening file: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

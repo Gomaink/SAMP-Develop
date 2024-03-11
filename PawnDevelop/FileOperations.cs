@@ -58,6 +58,32 @@ namespace WindowsFormsApp
             return false;
         }
 
+        public static bool OpenFolder(FastColoredTextBox fastColoredTextBox, out string newFolderPath)
+        {
+            newFolderPath = string.Empty;
+            FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
+            DialogResult result = folderBrowserDialog.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                try
+                {
+                    fastColoredTextBox.Clear();
+                    string selectedPath = folderBrowserDialog.SelectedPath;
+                    newFolderPath = selectedPath;
+
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error opening folder: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+            }
+            return false;
+        }
+
+
         public static void SaveFile(FastColoredTextBox fastColoredTextBox, string filePath)
         {
             try
@@ -90,7 +116,6 @@ namespace WindowsFormsApp
 
         public static void Exit(FastColoredTextBox fastColoredTextBox, string filePath)
         {
-            // Verifica se há texto no controle e se houve modificações
             if (!string.IsNullOrEmpty(fastColoredTextBox.Text) && fastColoredTextBox.Text != fastColoredTextBox.Tag?.ToString())
             {
                 DialogResult result = MessageBox.Show("Do you want to save changes before exiting?", "Save changes", MessageBoxButtons.YesNoCancel);
