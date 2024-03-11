@@ -20,10 +20,10 @@ Overall, Pawn Develop provides a robust and flexible platform for editing Pawn l
 ## Images
 <h3>Dark theme</h3>
 
-![](https://imgur.com/u7aHvIA.png)
+![](https://imgur.com/lFIdgsx.png)
 <h3>Light theme</h3>
 
-![](https://imgur.com/cAtMWmw.png)
+![](https://imgur.com/a6vZ5Mu.png)
 <h3>Discord Rich Presence</h3>
 
 ![](https://imgur.com/6CicIAj.png)
