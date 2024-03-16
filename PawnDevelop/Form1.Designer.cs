@@ -58,6 +58,7 @@
             helpToolStripMenuItem = new ToolStripMenuItem();
             aboutPawnDevelopToolStripMenuItem = new ToolStripMenuItem();
             treeView1 = new TreeView();
+            hideShowSidebarCtrlJToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -249,7 +250,7 @@
             // 
             // optionsToolStripMenuItem
             // 
-            optionsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { themeToolStripMenuItem });
+            optionsToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { themeToolStripMenuItem, hideShowSidebarCtrlJToolStripMenuItem });
             optionsToolStripMenuItem.ForeColor = Color.White;
             optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
             optionsToolStripMenuItem.Size = new Size(61, 20);
@@ -261,7 +262,7 @@
             themeToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { lightToolStripMenuItem, darkToolStripMenuItem });
             themeToolStripMenuItem.ForeColor = Color.White;
             themeToolStripMenuItem.Name = "themeToolStripMenuItem";
-            themeToolStripMenuItem.Size = new Size(113, 22);
+            themeToolStripMenuItem.Size = new Size(222, 22);
             themeToolStripMenuItem.Text = "Theme";
             // 
             // lightToolStripMenuItem
@@ -301,13 +302,22 @@
             // treeView1
             // 
             treeView1.BackColor = Color.FromArgb(35, 35, 35);
+            treeView1.Dock = DockStyle.Left;
             treeView1.ForeColor = Color.White;
-            treeView1.Location = new Point(12, 27);
+            treeView1.Location = new Point(0, 24);
             treeView1.Name = "treeView1";
-            treeView1.Size = new Size(152, 411);
+            treeView1.Size = new Size(152, 426);
             treeView1.TabIndex = 2;
             treeView1.NodeMouseClick += treeView1_NodeMouseClick;
-            treeView1.Dock = DockStyle.Left; 
+            // 
+            // hideShowSidebarCtrlJToolStripMenuItem
+            // 
+            hideShowSidebarCtrlJToolStripMenuItem.BackColor = Color.FromArgb(35, 35, 35);
+            hideShowSidebarCtrlJToolStripMenuItem.ForeColor = Color.White;
+            hideShowSidebarCtrlJToolStripMenuItem.Name = "hideShowSidebarCtrlJToolStripMenuItem";
+            hideShowSidebarCtrlJToolStripMenuItem.Size = new Size(222, 22);
+            hideShowSidebarCtrlJToolStripMenuItem.Text = "Hide/Show Sidebar (Ctrl+J)";
+            hideShowSidebarCtrlJToolStripMenuItem.Click += hideShowSidebarCtrlJToolStripMenuItem_Click;
             // 
             // Form1
             // 
@@ -360,5 +370,7 @@
         private ToolStripMenuItem darkToolStripMenuItem;
         private ToolStripMenuItem openFolderToolStripMenuItem;
         private TreeView treeView1;
+        private ToolStripMenuItem hideSidebarCtrlJToolStripMenuItem;
+        private ToolStripMenuItem hideShowSidebarCtrlJToolStripMenuItem;
     }
 }

@@ -42,57 +42,27 @@ namespace PawnDevelop
         {
             if (e.Control && e.KeyCode == Keys.N) //new file
             {
-                FileOperations.CreateNewFile(fastColoredTextBox1, filePath);
+                NewToolStripMenuItem_Click(sender, e);
             }
 
             if (e.Control && e.KeyCode == Keys.O) //open file
             {
-                if (FileOperations.OpenFile(fastColoredTextBox1, out string newFilePath))
-                {
-                    filePath = newFilePath;
-                    discordRPCManager.UpdatePresenceOnFileOpenOrEdit(filePath);
-                }
+                OpenToolStripMenuItem_Click(sender, e);
             }
 
             if (e.Control && e.KeyCode == Keys.S) //save file
             {
-                if (!string.IsNullOrEmpty(filePath))
-                    FileOperations.SaveFile(fastColoredTextBox1, filePath);
-                else
-                    FileOperations.SaveFileAs(fastColoredTextBox1, ref filePath);
+                SaveToolStripMenuItem_Click(sender, e);
                 e.SuppressKeyPress = true;
             }
 
             if (e.KeyCode == Keys.F5) //compile file
             {
-                if (!string.IsNullOrEmpty(filePath))
-                {
-                    string extension = Path.GetExtension(filePath);
-                    if (extension.Equals(".pwn", StringComparison.OrdinalIgnoreCase))
-                    {
-                        FileOperations.CompilePawnFile(fastColoredTextBox1, filePath);
-                    }
-                    else
-                    {
-                        MessageBox.Show("The file is not a .pwn file or has not yet been saved.", "Compiler Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("The file path is empty.", "Compiler Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                CompileToolStripMenuItem_Click(sender, e);
             }
             if (e.Control && e.KeyCode == Keys.J)
             {
-                treeView1.Visible = !treeView1.Visible;
-                if (treeView1.Visible)
-                {
-                    fastColoredTextBox1.Size = new Size(fastColoredTextBox1.Size.Width + treeView1.Width, fastColoredTextBox1.Size.Height);
-                }
-                else
-                {
-                    fastColoredTextBox1.Size = new Size(fastColoredTextBox1.Size.Width - treeView1.Width, fastColoredTextBox1.Size.Height);
-                }
+                hideShowSidebarCtrlJToolStripMenuItem_Click(sender, e);
             }
         }
 
@@ -266,6 +236,9 @@ namespace PawnDevelop
             fastColoredTextBox1.BackColor = lightBackColor;
             fastColoredTextBox1.ForeColor = lightForeColor;
 
+            treeView1.BackColor = lightBackColor;
+            treeView1.ForeColor = lightForeColor;
+
             fastColoredTextBox1.LineNumberColor = Color.Black;
             fastColoredTextBox1.IndentBackColor = Color.FromArgb(255, 255, 255);
 
@@ -301,11 +274,27 @@ namespace PawnDevelop
             fastColoredTextBox1.BackColor = darkBackColor;
             fastColoredTextBox1.ForeColor = darkForeColor;
 
+            treeView1.BackColor = darkBackColor;
+            treeView1.ForeColor = darkForeColor;
+
             fastColoredTextBox1.LineNumberColor = Color.White;
             fastColoredTextBox1.IndentBackColor = Color.FromArgb(35, 35, 35);
 
             BackColor = darkBackColor;
             ForeColor = darkForeColor;
+        }
+
+        private void hideShowSidebarCtrlJToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            treeView1.Visible = !treeView1.Visible;
+            if (treeView1.Visible)
+            {
+                fastColoredTextBox1.Size = new Size(fastColoredTextBox1.Size.Width + treeView1.Width, fastColoredTextBox1.Size.Height);
+            }
+            else
+            {
+                fastColoredTextBox1.Size = new Size(fastColoredTextBox1.Size.Width - treeView1.Width, fastColoredTextBox1.Size.Height);
+            }
         }
 
         private void InitializeFastColoredTextBox()
@@ -392,7 +381,6 @@ namespace PawnDevelop
                 }
             }
 
-            // Abre o novo arquivo selecionado pelo usuário
             if (e.Node.Text.EndsWith(".pwn", StringComparison.OrdinalIgnoreCase) ||
                 e.Node.Text.EndsWith(".txt", StringComparison.OrdinalIgnoreCase) ||
                 e.Node.Text.EndsWith(".cfg", StringComparison.OrdinalIgnoreCase) ||
