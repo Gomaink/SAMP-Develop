@@ -75,7 +75,6 @@ C:\Users\Gomes\source\repos\SAMPDevelop\SAMPDevelop\bin\Debug\net8.0-windows\Dis
 C:\Users\Gomes\source\repos\SAMPDevelop\SAMPDevelop\bin\Debug\net8.0-windows\FastColoredTextBox.dll
 C:\Users\Gomes\source\repos\SAMPDevelop\SAMPDevelop\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
 C:\Users\Gomes\source\repos\SAMPDevelop\SAMPDevelop\obj\Debug\net8.0-windows\SAMPDevelop.csproj.AssemblyReference.cache
-C:\Users\Gomes\source\repos\SAMPDevelop\SAMPDevelop\obj\Debug\net8.0-windows\PawnDevelop.Form1.resources
 C:\Users\Gomes\source\repos\SAMPDevelop\SAMPDevelop\obj\Debug\net8.0-windows\SAMPDevelop.Properties.Resources.resources
 C:\Users\Gomes\source\repos\SAMPDevelop\SAMPDevelop\obj\Debug\net8.0-windows\SAMPDevelop.csproj.GenerateResource.cache
 C:\Users\Gomes\source\repos\SAMPDevelop\SAMPDevelop\obj\Debug\net8.0-windows\SAMPDevelop.GeneratedMSBuildEditorConfig.editorconfig
@@ -88,3 +87,4 @@ C:\Users\Gomes\source\repos\SAMPDevelop\SAMPDevelop\obj\Debug\net8.0-windows\ref
 C:\Users\Gomes\source\repos\SAMPDevelop\SAMPDevelop\obj\Debug\net8.0-windows\SAMPDevelop.pdb
 C:\Users\Gomes\source\repos\SAMPDevelop\SAMPDevelop\obj\Debug\net8.0-windows\SAMPDevelop.genruntimeconfig.cache
 C:\Users\Gomes\source\repos\SAMPDevelop\SAMPDevelop\obj\Debug\net8.0-windows\ref\SAMPDevelop.dll
+C:\Users\Gomes\source\repos\SAMPDevelop\SAMPDevelop\obj\Debug\net8.0-windows\SAMPDevelop.SAMPDevelop.resources
