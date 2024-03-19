@@ -1,7 +1,7 @@
-# PawnDevelop
+# SAMP Develop
 A open-source integrated development environment (IDE), made as an alternative to "Pawno", an editor and compiler for Pawn scripts.
 <hr>
-Pawn Develop is a Windows Forms application that provides a text editing interface with custom syntax highlighting for the Pawn language. It uses the FastColoredTextBoxNS library to provide an advanced text area with support for various features, including keyword highlighting , types, macros, literals, comments and strings.
+SAMP Develop is a Windows Forms application that provides a text editing interface with custom syntax highlighting for the Pawn language. It uses the FastColoredTextBoxNS library to provide an advanced text area with support for various features, including keyword highlighting , types, macros, literals, comments and strings.
 
 - The editor interface is configured to adapt to different visual themes, such as light and dark themes. Visual styles such as background colors, text colors, and font styles are adjustable to provide a visually pleasing editing experience customized to the user's preferences.
 
@@ -15,7 +15,7 @@ Pawn Develop is a Windows Forms application that provides a text editing interfa
 
 - The editor offers a discord status with the file you are editing and how long you have been editing, this with the help of the DiscordRPC library, which creates a custom Rich Presence.
 
-Overall, Pawn Develop provides a robust and flexible platform for editing Pawn language text, with advanced syntax highlighting, file management, and visual customization features. It is suitable for developers looking for a powerful and highly configurable text editing tool.
+Overall, SAMP Develop provides a robust and flexible platform for editing Pawn language text, with advanced syntax highlighting, file management, and visual customization features. It is suitable for developers looking for a powerful and highly configurable text editing tool.
 
 ## Images
 <h3>Dark theme</h3>
