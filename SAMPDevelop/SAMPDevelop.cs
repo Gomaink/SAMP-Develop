@@ -210,6 +210,13 @@ namespace SAMPDevelop
             darkToolStripMenuItem.BackColor = lightBackColor;
             darkToolStripMenuItem.ForeColor = lightForeColor;
 
+            weaponIDToolStripMenuItem.BackColor = lightBackColor;
+            weaponIDToolStripMenuItem.ForeColor = lightForeColor;
+            bodypartIDToolStripMenuItem.BackColor = lightBackColor;
+            bodypartIDToolStripMenuItem.ForeColor = lightForeColor;
+            bonesIDToolStripMenuItem.BackColor = lightBackColor;
+            bonesIDToolStripMenuItem.ForeColor = lightForeColor;
+
             fastColoredTextBox1.BackColor = lightBackColor;
             fastColoredTextBox1.ForeColor = lightForeColor;
 
@@ -247,6 +254,13 @@ namespace SAMPDevelop
             lightToolStripMenuItem.ForeColor = darkForeColor;
             darkToolStripMenuItem.BackColor = darkBackColor;
             darkToolStripMenuItem.ForeColor = darkForeColor;
+
+            weaponIDToolStripMenuItem.BackColor = darkBackColor;
+            weaponIDToolStripMenuItem.ForeColor = darkForeColor;
+            bodypartIDToolStripMenuItem.BackColor = darkBackColor;
+            bodypartIDToolStripMenuItem.ForeColor = darkForeColor;
+            bonesIDToolStripMenuItem.BackColor = darkBackColor;
+            bonesIDToolStripMenuItem.ForeColor = darkForeColor;
 
             fastColoredTextBox1.BackColor = darkBackColor;
             fastColoredTextBox1.ForeColor = darkForeColor;
