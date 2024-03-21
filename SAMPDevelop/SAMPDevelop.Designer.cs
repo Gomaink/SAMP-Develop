@@ -56,9 +56,15 @@
             lightToolStripMenuItem = new ToolStripMenuItem();
             darkToolStripMenuItem = new ToolStripMenuItem();
             hideShowSidebarCtrlJToolStripMenuItem = new ToolStripMenuItem();
+            sAMPToolStripMenuItem1 = new ToolStripMenuItem();
+            weaponsIDToolStripMenuItem = new ToolStripMenuItem();
+            weaponIDToolStripMenuItem = new ToolStripMenuItem();
+            bodypartIDToolStripMenuItem = new ToolStripMenuItem();
             helpToolStripMenuItem = new ToolStripMenuItem();
             aboutSAMPDevelopToolStripMenuItem = new ToolStripMenuItem();
+            sAMPToolStripMenuItem = new ToolStripMenuItem();
             treeView1 = new TreeView();
+            bonesIDToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -71,7 +77,7 @@
             // 
             menuStrip1.BackColor = Color.FromArgb(30, 30, 30);
             menuStrip1.Font = new Font("Microsoft Sans Serif", 9F);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, editToolStripMenuItem, buildToolStripMenuItem, optionsToolStripMenuItem, helpToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, editToolStripMenuItem, buildToolStripMenuItem, optionsToolStripMenuItem, sAMPToolStripMenuItem1, helpToolStripMenuItem, sAMPToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(800, 24);
@@ -292,6 +298,42 @@
             hideShowSidebarCtrlJToolStripMenuItem.Text = "Hide/Show Sidebar (Ctrl+J)";
             hideShowSidebarCtrlJToolStripMenuItem.Click += hideShowSidebarCtrlJToolStripMenuItem_Click;
             // 
+            // sAMPToolStripMenuItem1
+            // 
+            sAMPToolStripMenuItem1.BackColor = Color.FromArgb(35, 35, 35);
+            sAMPToolStripMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { weaponsIDToolStripMenuItem });
+            sAMPToolStripMenuItem1.ForeColor = Color.White;
+            sAMPToolStripMenuItem1.Name = "sAMPToolStripMenuItem1";
+            sAMPToolStripMenuItem1.Size = new Size(56, 20);
+            sAMPToolStripMenuItem1.Text = "SA:MP";
+            // 
+            // weaponsIDToolStripMenuItem
+            // 
+            weaponsIDToolStripMenuItem.BackColor = Color.FromArgb(35, 35, 35);
+            weaponsIDToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { weaponIDToolStripMenuItem, bodypartIDToolStripMenuItem, bonesIDToolStripMenuItem });
+            weaponsIDToolStripMenuItem.ForeColor = Color.White;
+            weaponsIDToolStripMenuItem.Name = "weaponsIDToolStripMenuItem";
+            weaponsIDToolStripMenuItem.Size = new Size(180, 22);
+            weaponsIDToolStripMenuItem.Text = "SA:MP ID's";
+            // 
+            // weaponIDToolStripMenuItem
+            // 
+            weaponIDToolStripMenuItem.BackColor = Color.FromArgb(35, 35, 35);
+            weaponIDToolStripMenuItem.ForeColor = Color.White;
+            weaponIDToolStripMenuItem.Name = "weaponIDToolStripMenuItem";
+            weaponIDToolStripMenuItem.Size = new Size(180, 22);
+            weaponIDToolStripMenuItem.Text = "Weapon ID";
+            weaponIDToolStripMenuItem.Click += weaponIDToolStripMenuItem_Click;
+            // 
+            // bodypartIDToolStripMenuItem
+            // 
+            bodypartIDToolStripMenuItem.BackColor = Color.FromArgb(35, 35, 35);
+            bodypartIDToolStripMenuItem.ForeColor = Color.White;
+            bodypartIDToolStripMenuItem.Name = "bodypartIDToolStripMenuItem";
+            bodypartIDToolStripMenuItem.Size = new Size(180, 22);
+            bodypartIDToolStripMenuItem.Text = "BodyPart ID";
+            bodypartIDToolStripMenuItem.Click += bodypartIDToolStripMenuItem_Click;
+            // 
             // helpToolStripMenuItem
             // 
             helpToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { aboutSAMPDevelopToolStripMenuItem });
@@ -308,6 +350,11 @@
             aboutSAMPDevelopToolStripMenuItem.Size = new Size(193, 22);
             aboutSAMPDevelopToolStripMenuItem.Text = "About SA:MP Develop";
             // 
+            // sAMPToolStripMenuItem
+            // 
+            sAMPToolStripMenuItem.Name = "sAMPToolStripMenuItem";
+            sAMPToolStripMenuItem.Size = new Size(12, 20);
+            // 
             // treeView1
             // 
             treeView1.BackColor = Color.FromArgb(35, 35, 35);
@@ -319,7 +366,16 @@
             treeView1.TabIndex = 2;
             treeView1.NodeMouseClick += treeView1_NodeMouseClick;
             // 
-            // Form1
+            // bonesIDToolStripMenuItem
+            // 
+            bonesIDToolStripMenuItem.BackColor = Color.FromArgb(35, 35, 35);
+            bonesIDToolStripMenuItem.ForeColor = Color.White;
+            bonesIDToolStripMenuItem.Name = "bonesIDToolStripMenuItem";
+            bonesIDToolStripMenuItem.Size = new Size(180, 22);
+            bonesIDToolStripMenuItem.Text = "Bones ID";
+            bonesIDToolStripMenuItem.Click += bonesIDToolStripMenuItem_Click;
+            // 
+            // SAMPDevelop
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -331,9 +387,9 @@
             ForeColor = SystemColors.ButtonFace;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = menuStrip1;
-            Name = "Form1";
+            Name = "SAMPDevelop";
             Text = "SA:MP Develop";
-            Load += Form1_Load;
+            Load += SAMPDevelop_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);
@@ -372,5 +428,11 @@
         private TreeView treeView1;
         private ToolStripMenuItem hideSidebarCtrlJToolStripMenuItem;
         private ToolStripMenuItem hideShowSidebarCtrlJToolStripMenuItem;
+        private ToolStripMenuItem sAMPToolStripMenuItem;
+        private ToolStripMenuItem sAMPToolStripMenuItem1;
+        private ToolStripMenuItem weaponsIDToolStripMenuItem;
+        private ToolStripMenuItem weaponIDToolStripMenuItem;
+        private ToolStripMenuItem bodypartIDToolStripMenuItem;
+        private ToolStripMenuItem bonesIDToolStripMenuItem;
     }
 }

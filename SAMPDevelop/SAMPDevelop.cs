@@ -21,22 +21,22 @@ namespace SAMPDevelop
             discordRPCManager = new DiscordRPCManager();
             InitializeFastColoredTextBox();
             this.KeyPreview = true;
-            this.KeyDown += Form1_KeyDown;
+            this.KeyDown += SAMPDevelop_KeyDown;
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void SAMPDevelop_Load(object sender, EventArgs e)
         {
             fastColoredTextBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
         }
 
-        private void Form1_Resize(object sender, EventArgs e)
+        private void SAMPDevelop_Resize(object sender, EventArgs e)
         {
 
             fastColoredTextBox1.Size = new System.Drawing.Size(this.ClientSize.Width - 50, this.ClientSize.Height - 50);
             treeView1.Height = this.ClientSize.Height - treeView1.Top;
         }
 
-        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        private void SAMPDevelop_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Control && e.KeyCode == Keys.N) //new file
             {
@@ -261,6 +261,25 @@ namespace SAMPDevelop
             ForeColor = darkForeColor;
         }
 
+        //=======================[SAMP IDs]=======================
+        private void weaponIDToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            WeaponsGUI weaponsGUIForm = new WeaponsGUI();
+            weaponsGUIForm.Show();
+        }
+
+        private void bodypartIDToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BodyPartGUI bodypartGUIForm = new BodyPartGUI();
+            bodypartGUIForm.Show();
+        }
+
+        private void bonesIDToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BonesGUI bonesGUIForm = new BonesGUI();
+            bonesGUIForm.Show();
+        }
+
         //=======================[FastColoredTextBox]=======================
         private void InitializeFastColoredTextBox()
         {
@@ -414,6 +433,6 @@ namespace SAMPDevelop
             {
                 MessageBox.Show("Error opening file: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        } 
+        }
     }
 }
