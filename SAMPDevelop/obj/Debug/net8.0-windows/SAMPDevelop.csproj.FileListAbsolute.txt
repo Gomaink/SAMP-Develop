@@ -88,3 +88,6 @@ C:\Users\Gomes\source\repos\SAMPDevelop\SAMPDevelop\obj\Debug\net8.0-windows\SAM
 C:\Users\Gomes\source\repos\SAMPDevelop\SAMPDevelop\obj\Debug\net8.0-windows\SAMPDevelop.genruntimeconfig.cache
 C:\Users\Gomes\source\repos\SAMPDevelop\SAMPDevelop\obj\Debug\net8.0-windows\ref\SAMPDevelop.dll
 C:\Users\Gomes\source\repos\SAMPDevelop\SAMPDevelop\obj\Debug\net8.0-windows\SAMPDevelop.SAMPDevelop.resources
+C:\Users\Gomes\source\repos\SAMPDevelop\SAMPDevelop\obj\Debug\net8.0-windows\SAMPDevelop.WeaponsGUI.resources
+C:\Users\Gomes\source\repos\SAMPDevelop\SAMPDevelop\obj\Debug\net8.0-windows\SAMPDevelop.BodyPartGUI.resources
+C:\Users\Gomes\source\repos\SAMPDevelop\SAMPDevelop\obj\Debug\net8.0-windows\SAMPDevelop.BonesGUI.resources
