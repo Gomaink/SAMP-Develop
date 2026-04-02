@@ -1,3 +1,5 @@
+# Discontinued project.
+
 # SA:MP Develop
 A open-source integrated development environment (IDE), made as an alternative to "Pawno", an editor and compiler for Pawn scripts.
 <hr>
